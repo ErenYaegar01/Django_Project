@@ -1,0 +1,147 @@
+body {
+
+    font-family: Arial, sans-serif;
+  
+    margin: 0;
+  
+    padding: 0;
+  
+    color: #333;
+  
+  }
+  
+  
+  
+  .navbar {
+  
+    display: flex;
+  
+    justify-content: space-between;
+  
+    align-items: center;
+  
+    background-color: #b90e3e;
+  
+    padding: 1rem;
+  
+    color: white;
+  
+  }
+  
+  
+  
+  .navbar ul {
+  
+    list-style: none;
+  
+    display: flex;
+  
+    gap: 1rem;
+  
+    margin: 0;
+  
+    padding: 0;
+  
+  }
+  
+  
+  
+  .navbar ul li {
+  
+    display: inline;
+  
+  }
+  
+  
+  
+  .navbar ul li a {
+  
+    color: white;
+  
+    text-decoration: none;
+  
+  }
+  
+  
+  
+  .navbar .brand {
+  
+    font-weight: bold;
+  
+  }
+  
+  
+  
+  header img {
+  
+    height: 40px;
+  
+  }
+  
+  
+  
+  main {
+  
+    padding: 1rem;
+  
+  }
+  
+  
+  
+  #about, #features, #how-it-works {
+  
+    margin-bottom: 2rem;
+  
+  }
+  
+  
+  
+  .features-container {
+  
+    display: grid;
+  
+    grid-template-columns: repeat(4, 1fr);
+  
+    gap: 1rem;
+  
+  }
+  
+  
+  
+  .feature-box {
+  
+    background-color: #f0f0f0;
+  
+    padding: 1rem;
+  
+    border: 1px solid #ddd;
+  
+    text-align: center;
+  
+    border-radius: 5px;
+  
+  }
+  
+  
+  
+  footer {
+  
+    background-color: #333;
+  
+    color: white;
+  
+    text-align: center;
+  
+    padding: 1rem;
+  
+  }
+  
+  
+  
+  footer a {
+  
+    color: #fff;
+  
+    text-decoration: underline;
+  
+  }

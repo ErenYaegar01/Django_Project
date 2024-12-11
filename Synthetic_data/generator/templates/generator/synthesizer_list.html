@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Synthesizer List</title>
+</head>
+<body>
+    <h1>Synthesizer List</h1>
+    <ul>
+        {% for synthesizer in synthesizers %}
+            <li>{{ synthesizer.name }} - {{ synthesizer.metadata.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

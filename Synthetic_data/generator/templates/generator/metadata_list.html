@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Metadata List</title>
+</head>
+<body>
+    <h1>Metadata List</h1>
+    <ul>
+        {% for meta in metadata %}
+            <li>{{ meta.name }} - {{ meta.description }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
