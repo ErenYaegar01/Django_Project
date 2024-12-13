@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetic Data Generator</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f7fb;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: #2a3d66;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Navbar Styling with Enhanced Hover Effects */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(45deg, #005f73, #0a9396);
+            background-size: 200% 200%;
+            padding: 1rem 2rem;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: gradientFlow 10s ease infinite;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar .logo:hover {
+            transform: rotate(5deg);
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Enhanced Navbar Hover Effects */
+        .navbar ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #94d2bd;
+        }
+
+        /* Features Section with Animations */
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-box {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            animation: pulse 1s infinite;
+        }
+
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg, 
+                transparent, 
+                rgba(148, 210, 189, 0.2), 
+                transparent
+            );
+            transform: rotate(-45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .feature-box:hover::before {
+            opacity: 1;
+        }
+
+        /* Usage Reports Section */
+        #usage-reports {
+            background: linear-gradient(135deg, #f0f9ff, #cbebff);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            {% comment %} <img src="cvs_logo.png" alt="CVS Health" class="logo-img"> {% endcomment %}
+            <span class="brand">Synthetic Data Generator</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#training">Model Training</a></li>
+                <li><a href="#generate">Generate Data</a></li>
+                <li><a href="#metrics">Metrics</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#help">Help</a></li>
+                <li><a href="#usage-reports">Usage Reports</a></li>
+
+                <!-- Logout or Login link depending on user authentication status -->
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'generator:logout' %}" id="logout-link">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'generator:login' %}" id="login-link">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+    </header>
+
+    </header>
+
+    <main>
+        <section id="about">
+            <h1>Welcome to Synthetic Data Generator</h1>
+            <p>You are successfully logged in! This portal helps you in providing high-quality synthetic data to meet your testing, training, and analytical needs.</p>
+        </section>
+
+        <section id="features">
+            <h2>Features</h2>
+            <div class="features-container">
+                <div class="feature-box">
+                    <h3>Data Variety</h3>
+                    <p>Generate diverse datasets for different applications.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Privacy and Security</h3>
+                    <p>Ensuring full privacy and data protection for your datasets.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Customization</h3>
+                    <p>Tailor data generation according to your needs.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Scalability</h3>
+                    <p>Scalable solutions for large datasets and complex models.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>High-Quality Data</h3>
+                    <p>Generate realistic, high-quality synthetic data.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Metrics</h3>
+                    <p>Evaluate and compare synthetic data quality through metrics.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Accuracy</h3>
+                    <p>Ensure data accuracy for real-world applications.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Custom Models</h3>
+                    <p>Train custom models with your synthetic data.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="usage-reports">
+            <h2>Usage Reports</h2>
+            <p>This section provides insights into how the synthetic data is being utilized across different applications.</p>
+        </section>
+
+        <section id="how-it-works">
+            <h2>How it Works?</h2>
+            <ol>
+                <li>Train a Model: Upload your dataset or GCP data.</li>
+                <li>Generate Data: Use the trained model to create synthetic data.</li>
+                <li>Metrics: Review and analyze synthetic data quality.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer style="
+        background-color:#333;
+        color:white;
+        text-align:center;
+        padding:1rem;
+        margin-top:2rem;
+        border-top:0.25em solid #444;
+    ">
+    </footer>
+    <script>
+        // Remove unnecessary JavaScript for logging out unless special actions are needed
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('#logout-link').addEventListener('click', function(event) {
+                console.log('Logging out...');
+
+            });
+        });
+    </script>
+
+</body>
+</html>
